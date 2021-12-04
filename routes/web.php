@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\HTTP\Controllers\TestController;
+use App\HTTP\Controllers\GetdataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', [TestController::class, 'index'])->name('Test');
+Route::get('/test', [GetdataController::class, 'GetdataFromApi'])->name('Rates');
