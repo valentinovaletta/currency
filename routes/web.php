@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', [GetdataController::class, 'GetdataFromApi'])->name('Rates');
+Route::get('/db', [GetdataController::class, 'getDataFromApi'])->name('getDataFromApi');
+
+Route::get('/test', [GetdataController::class, 'getData'])->name('getData');
