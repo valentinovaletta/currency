@@ -5,8 +5,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\Currency;
 
-use App\Http\Resources\Currency as CurrencyResource;
-
 class GetdataController extends Controller
 {
     
