@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\HTTP\Controllers\GetdataController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +13,5 @@ use App\HTTP\Controllers\GetdataController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/db', [GetdataController::class, 'getDataFromApi']);
-
-Route::get('/test', [GetdataController::class, 'getData']);
+Route::get('/', 'App\HTTP\Controllers\GetdataController@getData');
+Route::get('/db', 'App\HTTP\Controllers\GetdataController@getDataFromApi');
