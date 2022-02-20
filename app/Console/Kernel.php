@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(new GetDataFromApi)->dailyAt('12:00');
+        $schedule->call(new GetDataFromApi)->everyMinute(); // ->dailyAt('12:00');
     }
 
     /**
