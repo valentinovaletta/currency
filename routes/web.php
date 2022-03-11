@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\HTTP\Controllers\GetdataController@getData');
 Route::get('/db', 'App\HTTP\Controllers\GetdataController@getDataFromApi');
+
+Route::get('/test', 'App\HTTP\Controllers\GetDataFromApi');
