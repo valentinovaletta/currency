@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Carbon;
 use App\Models\Currency;
+use App\Http\Controllers\TelegramController;
 
 class GetDataFromApi extends Controller
 {
     public function __invoke(){
+        
+        $message = new TelegramController;
 
         try{
             $data = $this->currencyapi();
@@ -16,11 +19,14 @@ class GetDataFromApi extends Controller
             $date = $rates->meta->last_updated_at;
             $usd = round ((1 / $rates->data->USD->value), 4) * 10000;
             $eur = round ((1 / $rates->data->EUR->value), 4) * 10000;
+
+            $message->send( $date . " \n USD = " . $usd . " \n EUR = ". $eur );
+
         } catch( \Exception $e){
             $date = date('Y-m-d H:i:s');
             $usd = 0;
             $eur = 0;
-            //return $e->getMessage();
+            $message->send( 'There is an error while update data from API ' . $e->getMessage() );
         }
 
         Currency::create(['currency_code'=>'USD', 'value'=>$usd, 'date'=> Carbon::parse($date)->setTimezone('UTC')]);
@@ -31,7 +37,7 @@ class GetDataFromApi extends Controller
 
     private function currencyapi(){
 
-        $url = "123https://api.currencyapi.com/v3/latest?apikey=11a3e5c0-9e1a-11ec-96e0-a5dd2ea87e04&base_currency=RUB";
+        $url = "https://api.currencyapi.com/v3/latest?apikey=11a3e5c0-9e1a-11ec-96e0-a5dd2ea87e04&base_currency=RUB";
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
