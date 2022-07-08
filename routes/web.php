@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\HTTP\Controllers\GetdataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +13,7 @@ use App\HTTP\Controllers\GetdataController;
 |
 */
 
-Route::get('/', [GetdataController::class, 'getData']);
+Route::get('/', 'App\Http\Controllers\TestController@getData');
 Route::get('/test', 'App\Http\Controllers\TestController@test');
 
 //Route::get('/getdatafromapi', 'App\HTTP\Controllers\GetDataFromApi');
