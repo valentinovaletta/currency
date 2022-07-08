@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\GetdataController;
-use App\HTTP\Controllers\TestController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +15,6 @@ use App\HTTP\Controllers\TestController;
 */
 
 Route::get('/', [GetdataController::class, 'getData']);
-Route::get('/test', [TestController::class, 'test']);
+Route::get('/test', 'App\Http\Controllers\TestController@test');
 
 //Route::get('/getdatafromapi', 'App\HTTP\Controllers\GetDataFromApi');
