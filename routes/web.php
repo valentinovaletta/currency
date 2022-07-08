@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\GetdataController@getData');
-Route::get('/test', 'App\Http\Controllers\TestController@test');
-
-//Route::get('/getdatafromapi', 'App\HTTP\Controllers\GetDataFromApi');
+Route::get('/getdatafromapi', 'App\HTTP\Controllers\GetDataFromApi');
