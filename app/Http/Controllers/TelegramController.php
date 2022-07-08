@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class TelegramController extends Controller{
     
     public function send( $message ){
-        return $this->sendMessage(494963311, $message, '5111024503:AAFhDgDyZ3n1hgHKPtfXb8qlZDacVhRBVJ0');
+        return $this->sendMessage(494963311, $message, ENV('TELEGRAM_TOKEN'));
     }
 
     private function sendMessage($chatID, $message, $token) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Carbon;
 use App\Models\Currency;
 use App\Http\Controllers\TelegramController;
+//use Illuminate\Http\Response;
 
 class GetDataFromApi extends Controller
 {
@@ -27,6 +28,7 @@ class GetDataFromApi extends Controller
             $usd = 0;
             $eur = 0;
             $message->send( 'There is an error while update data from API ' . $e->getMessage() );
+            //return response($e->getMessage(), 422);
         }
 
         Currency::create(['currency_code'=>'USD', 'value'=>$usd, 'date'=> Carbon::parse($date)->setTimezone('UTC')]);
@@ -49,9 +51,9 @@ class GetDataFromApi extends Controller
         $resp = curl_exec($curl);
         curl_close($curl);
 
-        if(curl_exec($curl) === false){
-            return curl_error($curl);
-        }
+        //if($resp = curl_exec($curl) === false){
+        //    return curl_error($curl);
+        //}
         return $resp;
     }
 
