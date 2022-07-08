@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\GetdataController@getData');
-Route::get('/db', 'App\HTTP\Controllers\GetDataFromApi@getData');
+Route::get('/db', 'App\Http\Controllers\GetDataFromApi@getData');
