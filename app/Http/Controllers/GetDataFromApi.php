@@ -8,7 +8,7 @@ use App\Http\Controllers\TelegramController;
 
 class GetDataFromApi extends Controller
 {
-    public function __invoke(){
+    public function getData(){
         
         $message = new TelegramController;
 
