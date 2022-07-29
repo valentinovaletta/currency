@@ -27,6 +27,7 @@ class GetDataFromApi extends Controller
             $usd = 0;
             $eur = 0;
             $message->send( 'There is an error while update data from API ' . $e->getMessage() );
+            return false;
         }
 
         Currency::create(['currency_code'=>'USD', 'value'=>$usd, 'date'=> Carbon::parse($date)->setTimezone('UTC')]);

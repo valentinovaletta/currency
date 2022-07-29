@@ -4,6 +4,9 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+
+use App\Http\Controllers\GetDataFromApi;
+
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -15,7 +18,7 @@ class UserTest extends TestCase
      */
     public function test_currencyapi()
     {
-        $response = $this->get('/getdatafromapi');
-        $response->assertStatus(200);
+        $appVersion = new GetDataFromApi();
+        $this->assertEquals(true,$appVersion->getData());
     }
 }
